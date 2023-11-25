@@ -5,12 +5,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.blogging.blog.entites.Users;
 import com.blogging.blog.payloads.UserDTO;
 import com.blogging.blog.reposetories.UserRepo;
 import com.blogging.blog.services.UserService;
 
+
+@Service
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepo userRepo;
