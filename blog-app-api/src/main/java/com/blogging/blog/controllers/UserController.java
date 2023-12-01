@@ -2,6 +2,8 @@ package com.blogging.blog.controllers;
 
 import com.blogging.blog.services.UserService;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 import java.util.Map;
 
@@ -36,7 +38,7 @@ public class UserController {
 	
 	//POST 
 	@PostMapping("/")
-	public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDto){
+	public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO userDto){
 		UserDTO createUserDto = this.userService.createUser(userDto);
 		return new ResponseEntity<>(createUserDto, HttpStatus.CREATED);
 	}
