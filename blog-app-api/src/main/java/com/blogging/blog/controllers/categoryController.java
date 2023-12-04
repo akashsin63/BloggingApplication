@@ -19,14 +19,14 @@ import com.blogging.blog.payloads.CategoryDTO;
 import com.blogging.blog.services.CategoryService;
 
 @RestController
-@RequestMapping("/api/categoies")
+@RequestMapping("/api/categories")
 public class categoryController {
 	
 	@Autowired
 	private CategoryService categoryService;
 	
 	//create
-	@PostMapping("/api/categoies")
+	@PostMapping("/")
 	public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO categoryDto){
 		CategoryDTO createCateogry  = this.categoryService.createCategory(categoryDto);	
 		return new ResponseEntity<CategoryDTO>(createCateogry,HttpStatus.CREATED);
@@ -59,7 +59,7 @@ public class categoryController {
 	}
 	
 	//getAll
-	@GetMapping("/")
+	@GetMapping("/all")
 	public ResponseEntity<List> getCategories(){
 	    List<CategoryDTO> categories =  this.categoryService.getAllCategory();
 	    return ResponseEntity.ok(categories);

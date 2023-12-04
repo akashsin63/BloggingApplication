@@ -13,7 +13,7 @@ public class CategoryDTO {
 	private Integer categoryId;
 	
 	@NotEmpty
-	@Size(min=6,max=100)
+	@Size(min=6)
 	private String discription;
 	
 	@NotEmpty
