@@ -15,7 +15,6 @@ import com.blogging.blog.reposetories.*;
 import com.blogging.blog.services.CategoryService;
 
 @Service
-
 public class CategoryServiceImpl implements CategoryService{
 	
 	@Autowired
@@ -36,8 +35,8 @@ public class CategoryServiceImpl implements CategoryService{
 	@Override
 	public CategoryDTO updateCategory(CategoryDTO categoryDto, Integer categoryId) {
 		Categories cat  = this.categoryRepo.findById(categoryId).orElseThrow(()-> new ResourceNotFoundException("category","category Id", categoryId));
-		cat.setCategoryTitle(categoryDto.getCategoryTitle());
-		cat.setCategoryDescription(categoryDto.getCategoryDescription());
+		cat.setCategoryTitle(categoryDto.getTitle());
+		cat.setCategoryDescription(categoryDto.getDiscription());
 		Categories updatedCat =  this.categoryRepo.save(cat);
 		
 		

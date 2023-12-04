@@ -14,10 +14,10 @@ public class CategoryDTO {
 	
 	@NotEmpty
 	@Size(min=6,max=100)
-	private String categoryDescription;
+	private String discription;
 	
 	@NotEmpty
 	@Size(min=1)
-	private String categoryTitle;
+	private String title;
 	
 }

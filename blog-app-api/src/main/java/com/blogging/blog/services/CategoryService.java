@@ -2,6 +2,8 @@ package com.blogging.blog.services;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 import com.blogging.blog.payloads.CategoryDTO;
 
 public interface CategoryService {
@@ -11,7 +13,7 @@ public interface CategoryService {
 	
 	//update
 	
-	CategoryDTO updateCategory(CategoryDTO categoryDto, Integer categoryId);
+	CategoryDTO updateCategory(CategoryDTO categoryDto, Integer catId);
 	
 	//get 
 	CategoryDTO getCategory(Integer categoryId);

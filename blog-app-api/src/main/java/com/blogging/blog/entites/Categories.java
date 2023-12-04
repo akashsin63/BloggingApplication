@@ -20,9 +20,9 @@ public class Categories {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer categoryId;
 	
-	@Column(name="discription",length=100,nullable=false)
+	@Column(name = "discription")
 	private String categoryDescription;
-	
+	 
 	@Column(name="title")
 	private String categoryTitle;
 	
