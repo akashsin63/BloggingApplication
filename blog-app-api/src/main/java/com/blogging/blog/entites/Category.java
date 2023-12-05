@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
 import lombok.*;
 
@@ -14,17 +15,20 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Categories {
+@Table(name="categories")
+public class Category {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer categoryId;
 	
-	@Column(name = "discription")
+	@Column(name="title",length=100,nullable=false)
+	private String categoryTitle;
+	
+	
+	@Column(name = "description")
 	private String categoryDescription;
 	 
-	@Column(name="title")
-	private String categoryTitle;
 	
 	
 }
