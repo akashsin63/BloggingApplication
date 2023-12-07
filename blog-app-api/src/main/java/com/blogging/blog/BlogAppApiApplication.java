@@ -15,7 +15,7 @@ public class BlogAppApiApplication {
 	}
 	
 	@Bean
-	public ModelMapper modelmapper(){
+    ModelMapper modelmapper(){
 		
 		return new ModelMapper();
 	}
