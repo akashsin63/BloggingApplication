@@ -9,17 +9,19 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 public class PostDTO {
+private Integer postId;
+	
 	private String title;
 	
 	private String content;
 	
 	private String imageName;
 	
-	private Date addedDate;
+	private Date addedDate;	
 	
-	private Category category;
-	
-	private Users user;
+	private CategoryDTO category;
+
+	private UserDTO user;;
 	
 	
 	

@@ -12,92 +12,86 @@ import com.blogging.blog.entites.Post;
 import com.blogging.blog.entites.Users;
 import com.blogging.blog.execptions.ResourceNotFoundException;
 import com.blogging.blog.payloads.PostDTO;
+import com.blogging.blog.payloads.PostResponse;
 import com.blogging.blog.reposetories.CategoryRepo;
 import com.blogging.blog.reposetories.PostRepo;
 import com.blogging.blog.reposetories.UserRepo;
 import com.blogging.blog.services.PostService;
 
 
-@Service
-public abstract class PostServiceImpl implements PostService{
-	
-	@Autowired
-	private PostRepo postRepo;
-	
-	@Autowired
-	private ModelMapper modelMapper;
-	
-	@Autowired
-	private UserRepo userRepo;
-	
-	@Autowired
-	private CategoryRepo categoryRepo;
+	@Service
+	public class PostServiceImpl implements PostService {
 
-	@Override
-	public PostDTO createPost(PostDTO postDto, Integer userId, Integer categoryId) {
-	Users user = this.userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User", "user Id ", userId));
-		
-		Category category = this.categoryRepo.findById(categoryId).orElseThrow(()-> new ResourceNotFoundException("Category ", "category Id", categoryId));
-		
-		Post post = this.modelMapper.map(postDto, Post.class);
-		post.setImageName("default.png");
-		post.setAddedDate(new Date());
-		post.setUser(user);
-		post.setCategory(category);
-		
-		Post newPost = this.postRepo.save(post);
-		return this.modelMapper.map(newPost,PostDTO.class);
-	}
+	    @Autowired
+	    private PostRepo postRepo;
 
-	@Override
-	public Post updatePost(PostDTO postDto, Integer postId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	    @Autowired
+	    private ModelMapper modelMapper;
 
-	@Override
-	public void deletePost(Integer postId) {
-		// TODO Auto-generated method stub
-		
-	}
+	    @Autowired
+	    private UserRepo userRepo;
 
-	@Override
-	public Post getPost(Integer postId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	    @Autowired
+	    private CategoryRepo categoryRepo;
 
-	@Override
-	public List<Post> getAllPost() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	    @Override
+	    public PostDTO createPost(PostDTO postDto, Integer userId, Integer categoryId) {
 
-	@Override
-	public Post getPostById(Integer postId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	        Users user = this.userRepo.findById(userId)
+	                .orElseThrow(() -> new ResourceNotFoundException("User ", "User id", userId));
 
-	@Override
-	public List<Post> getPostByCategory(Integer CategoryId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	        Category category = this.categoryRepo.findById(categoryId)
+	                .orElseThrow(() -> new ResourceNotFoundException("Category", "category id ", categoryId));
 
-	@Override
-	public List<Post> getPostByUser(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	        Post post = this.modelMapper.map(postDto, Post.class);
+	        post.setImageName("default.png");
+	        post.setAddedDate(new Date());
+	        post.setUser(user);
+	        post.setCategory(category);
 
-	@Override
-	public List<Post> searchPosts(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
+	        Post newPost = this.postRepo.save(post);
+
+	        return this.modelMapper.map(newPost, PostDTO.class);
+	    }
+
+	    @Override
+	    public PostDTO updatePost(PostDTO postDto, Integer postId) {
+
+	       return null;
+	    }
+
+	    @Override
+	    public void deletePost(Integer postId) {
+
+	    }
+
+	    @Override
+	    public PostResponse getAllPost(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
+
+	    	 return null;
+	    }
+
+	    @Override
+	    public PostDTO getPostById(Integer postId) {
+	    	 return null;
+	    }
+
+	    @Override
+	    public List<PostDTO> getPostsByCategory(Integer categoryId) {
+
+	        return null;
+	    }
+
+	    @Override
+	    public List<PostDTO> getPostsByUser(Integer userId) {
+	    	 return null;
+	    }
+
+	    @Override
+	    public List<PostDTO> searchPosts(String keyword) {
+	       return null;
+	    }
+
 	}
 
 
