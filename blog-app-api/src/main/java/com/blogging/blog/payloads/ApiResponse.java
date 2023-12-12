@@ -1,5 +1,4 @@
 package com.blogging.blog.payloads;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

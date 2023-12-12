@@ -1,5 +1,4 @@
 package com.blogging.blog.payloads;
-
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

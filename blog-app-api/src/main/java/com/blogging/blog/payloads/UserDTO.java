@@ -23,4 +23,6 @@ public class UserDTO {
 	
 	@NotEmpty
 	private String about;
-}
+
+	}
+

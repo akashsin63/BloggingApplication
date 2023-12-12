@@ -70,5 +70,4 @@ public class CategoryController {
 		List<CategoryDTO> categories = this.categoryService.getCategories();
 		return ResponseEntity.ok(categories);
 	}
-
 }
